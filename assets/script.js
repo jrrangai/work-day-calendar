@@ -1,3 +1,10 @@
+// the current day is displayed at the top of the calendar
+var update = function() {
+    document.getElementById("currentDay")
+    .innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
+}
+setInterval(update, 1000);
+
 var hoursOfOpperation = [
     "9:00 am",
     "10:00 am",
@@ -10,7 +17,7 @@ var hoursOfOpperation = [
     "5:00 pm",
 ]
 
-// the current day is displayed at the top of the calendar
+
 
 // I am presented with time blocks for standard business hours
 function businessHours() {
@@ -47,4 +54,4 @@ function businessHours() {
 // WHEN I refresh the page, THEN the saved events persist
     // load tasks
 
-businessHours()
+businessHours();
