@@ -16,19 +16,35 @@ var hoursOfOpperation = [
     "4:00 pm",
     "5:00 pm",
 ]
+var currentHour = moment().format('H');
 
-
+console.log(moment().format('H'));
+// Do I create the task outside the busincessHours function or within
+    // Do I create it and then the business hours function runs it? 
+    // Should the button.on be inside the business hours function or a new one
+// How do I load locally stored data
+// Audit the tasks to show past, present, and future
 
 // I am presented with time blocks for standard business hours
 function businessHours() {
     for (i = 0; i < hoursOfOpperation.length; i++) {
         // Hours
-        var timeRow = $('<div>').addClass('row time-block')
-        var hour = $('<p>').addClass('hour col-3').text(hoursOfOpperation[i])
+        var timeRow = $('<div>').addClass('row time-block');
+        var hour = $('<p>').addClass('hour col-lg-3').text(hoursOfOpperation[i]);
+        var text = localStorage.getItem(hoursOfOpperation[i]);
         // Description (text)
-        var taskDescription = $('<textarea>').addClass('description col-7')
+        var taskDescription = $('<textarea>').text(text);
         // button
-        var button = $('<button>').addClass('saveBtn col-2')
+        var miltaryHour = i + 9;
+        if (currentHour > miltaryHour) {
+            taskDescription.addClass('description col-lg-7 past')
+        } else if (currentHour < miltaryHour) {
+            taskDescription.addClass('description col-lg-7 future')
+        } else {
+            taskDescription.addClass('description col-lg-7 present')
+        };
+
+        var button = $('<button>').addClass('saveBtn col-lg-2');
 
         timeRow.append(hour, taskDescription, button)
         $('#timeblock').append(timeRow)
@@ -37,6 +53,7 @@ function businessHours() {
             event.preventDefault();
             var indexHour = $(this).siblings()[0];
             indexHour = $(indexHour).text();
+            console.log(indexHour);
             var textDescription = $(this).siblings()[1];
             textDescription = $(textDescription).val();
             localStorage.setItem(indexHour, textDescription);
