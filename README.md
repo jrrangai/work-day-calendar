@@ -21,3 +21,5 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 
+![work-day-cal](https://user-images.githubusercontent.com/99766422/161405403-625f1583-6d7c-48f3-b32a-78a6290eb86b.png)
+
