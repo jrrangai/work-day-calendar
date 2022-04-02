@@ -1,5 +1,7 @@
 # work-day-calendar
 
+https://jrrangai.github.io/work-day-calendar/
+
 ## What it is:
 WHEN I open the planner
 THEN the current day is displayed at the top of the calendar
@@ -18,3 +20,4 @@ THEN the text for that event is saved in local storage
 
 WHEN I refresh the page
 THEN the saved events persist
+
